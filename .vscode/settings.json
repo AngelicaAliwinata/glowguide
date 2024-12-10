@@ -1,0 +1,14 @@
+{
+    
+        "debug.onTaskErrors": "debugAnyway",
+        "git.confirmSync": false,
+        "liveServer.settings.donotVerifyTags": true,
+        "liveServer.settings.donotShowInfoMsg": true,
+        "css.validate": false,
+        "tailwindCSS.emmetCompletions": true,
+        "editor.quickSuggestions": {
+          "strings": true
+        }
+      
+      
+}
