@@ -1,35 +1,22 @@
 'use client'
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import React, { useState } from "react";
+import {register} from "@/actions/authentications";
 
 export default function SignUp() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const action = "register"
     const username = event.currentTarget.username.value;
     const email = event.currentTarget.email.value;
     const password = event.currentTarget.password.value;
 
     try {
-      const response = await fetch("/api/auth/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ action, username, email, password }),
-      });
-
-      if (response.ok) {
-        // Redirect ke halaman login setelah berhasil signup
+      await register({email, password, username});
         window.location.href = "/login";
-      } else {
-        const errorData = await response.json();
-        setErrorMessage(errorData.message || "Sign up failed");
-      }
-    } catch (error) {
+    } catch {
       setErrorMessage("An unexpected error occurred. Please try again.");
     }
   };
