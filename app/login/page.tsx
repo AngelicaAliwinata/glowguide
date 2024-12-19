@@ -1,4 +1,4 @@
-"use server"
+"use client"
 
 import React, {startTransition} from "react";
 import Image from "next/image";
@@ -10,7 +10,7 @@ interface LoginData {
     password: string;
 }
 
-export default async function Login() {
+export default function Login() {
     const onSubmit = (values: LoginData) => {
         startTransition(() => {
             login(values)
