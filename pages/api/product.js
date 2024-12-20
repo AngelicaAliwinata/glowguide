@@ -1,4 +1,4 @@
-import prisma from '../../lib/prisma'; // Path ke Prisma Client
+import {db} from '../../lib/db'; // Path ke Prisma Client
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     }
 
     try {
-      const products = await prisma.product.findMany({
+      const products = await db.product.findMany({
         where: {
           category,
           skinTypes: {
