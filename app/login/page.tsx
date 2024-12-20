@@ -11,11 +11,12 @@ interface LoginData {
 }
 
 export default function Login() {
-    const onSubmit = (values: LoginData) => {
+    const onSubmit = (event: React.FormEvent<HTMLFormElement>, values: LoginData) => {
+        event.preventDefault();
         startTransition(() => {
             login(values)
-                .then((data) => {
-                    console.log(data);
+                .then(() => {
+                    window.location.href = "/";
                 })
         })
     };
@@ -39,7 +40,10 @@ export default function Login() {
                     <h1 className="text-2xl font-extrabold text-[#DE8C9C] mb-4 text-center">
                         Welcome Back!
                     </h1>
-                    <form onSubmit={() => onSubmit}>
+                    <form onSubmit={(e) => onSubmit(e, {
+                        email: e.currentTarget.email.value,
+                        password: e.currentTarget.password.value
+                    })}>
                         <div className="mb-4">
                             <label
                                 htmlFor="email"
