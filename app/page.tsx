@@ -68,7 +68,7 @@ export default function Home() {
               </li>
               <li>
                 <Link
-                  href="/recommendation"
+                  href="/recom"
                   className="hover:text-pink-500 text-gray-700 font-medium"
                 >
                   Product Recommendation

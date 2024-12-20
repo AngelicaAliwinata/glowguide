@@ -31,6 +31,20 @@ export default function SkinEdu() {
       href: "/article/skincare-ingredients",
       icon: "🌿",
     },
+    {
+      id: 5,
+      title: "How to Layer Skincare Products",
+      description: "Learn the correct order to apply your skincare products.",
+      href: "/article/skincare-layering",
+      icon: "🛁",
+    },
+    {
+      id: 6,
+      title: "Night vs Day Skincare Routines",
+      description: "Understand the differences between night and day skincare.",
+      href: "/article/night-vs-day",
+      icon: "🌙",
+    },
   ];
 
   return (
@@ -50,15 +64,24 @@ export default function SkinEdu() {
             {articles.map((article) => (
               <div
                 key={article.id}
-                className="group bg-white rounded-lg shadow-lg p-6 border-t-4 border-pink-300 hover:border-pink-500 hover:shadow-xl transition-all duration-300"
+                className="group bg-white rounded-lg shadow-lg p-6 border-t-4 border-pink-300 hover:border-pink-500 hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between"
               >
+                {/* Ikon */}
                 <div className="flex items-center justify-center w-16 h-16 bg-pink-100 rounded-full mb-4 text-pink-500 text-3xl mx-auto group-hover:bg-pink-500 group-hover:text-white">
                   {article.icon}
                 </div>
-                <h2 className="text-2xl font-semibold text-gray-800 text-center mb-4">
-                  {article.title}
-                </h2>
-                <p className="text-gray-600 text-center mb-6">{article.description}</p>
+
+                {/* Konten */}
+                <div className="flex-1">
+                  <h2 className="text-2xl font-semibold text-gray-800 text-center mb-4 min-h-[60px]">
+                    {article.title}
+                  </h2>
+                  <p className="text-gray-600 text-center mb-6 min-h-[72px]">
+                    {article.description}
+                  </p>
+                </div>
+
+                {/* Tombol */}
                 <div className="text-center">
                   <Link
                     href={article.href}

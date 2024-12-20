@@ -22,3 +22,12 @@ model Session {
   userId        Int
   user          User     @relation(fields: [userId], references: [id])
 }
+
+model Product {
+  id         Int      @id @default(autoincrement())
+  category   String   // Contoh: "face wash", "moisturizer", "sunscreen"
+  skinTypes  String   // Contoh: "oily,dry" (gunakan format comma-separated jika menyimpan lebih dari satu tipe kulit)
+  brand      String   // Contoh: Nama merek produk
+  productName String // Nama Produk
+  photoProduct String   @default("")// Foto Produk
+}
